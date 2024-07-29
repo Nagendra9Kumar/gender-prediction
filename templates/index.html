@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Gender Prediction</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+
+<body>
+    <div class="container">
+        <h1>Gender Prediction</h1>
+        <form action="/predict" method="post">
+            <input type="text" name="text_input" placeholder="Enter text here...">
+            <button type="submit">Submit</button>
+        </form>
+        {% if prediction %}
+        <div class="result {% if prediction == 'Male' %}male{% else %}female{% endif %}">
+            Prediction: {{ prediction }}
+        </div>
+        {% endif %}
+        <div class="mode-switch">
+            <label class="switch">
+                <input type="checkbox" id="mode-toggle">
+                <span class="slider"></span>
+            </label>
+            <span>Dark Mode</span>
+        </div>
+    </div>
+
+    <script src="{{ url_for('static', filename='script.js') }}"></script>
+</body>
+
+</html>
