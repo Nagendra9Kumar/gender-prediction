@@ -1,3 +1,4 @@
+
 import numpy as np
 from flask import Flask, render_template, request
 import pickle
@@ -23,7 +24,7 @@ def predict():
         prediction = model.predict(text_transformed)
         result = 'Male' if prediction[0] == 1 else 'Female'
     else:
-        result = 'Please enter some text.'
+        result = 'Please enter name.'
 
     return render_template('index.html', prediction=result)
 
