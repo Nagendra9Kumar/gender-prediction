@@ -1,11 +1,17 @@
 import pickle
+import requests
+from io import BytesIO
 
 def load_model():
-    with open('https://github.com/Nagendra9Kumar/gender-prediction/blob/main/model/model.pkl?raw=true', 'rb') as f:
-        model = pickle.load(f)
+    url = 'https://raw.githubusercontent.com/Nagendra9Kumar/gender-prediction/main/model/model.pkl'
+    response = requests.get(url)
+    model_file = BytesIO(response.content)
+    model = pickle.load(model_file)
     return model
 
 def load_vectorizer():
-    with open('https://github.com/Nagendra9Kumar/gender-prediction/blob/main/model/predict.pkl?raw=true', 'rb') as f:
-        vectorizer = pickle.load(f)
+    url = 'https://raw.githubusercontent.com/Nagendra9Kumar/gender-prediction/main/model/vectorizer.pkl'
+    response = requests.get(url)
+    vectorizer_file = BytesIO(response.content)
+    vectorizer = pickle.load(vectorizer_file)
     return vectorizer
