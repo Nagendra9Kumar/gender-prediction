@@ -3,7 +3,7 @@
 A web application that predicts gender based on text input using a Flask backend.
 ## Sample
 
-
+https://github.com/user-attachments/assets/0ac0ad4e-3870-407e-b332-73b96a1d9c3f
 
 ## Table of Contents
 - [Description](#description)
